@@ -230,7 +230,7 @@
   .rc-chitosan__photo-scroll {
     position: relative;
     margin-top: clamp(44px, 6vw, 76px);
-    height: calc(100vh + 800px);
+    height: calc(120vh + 800px);
   }
 
   .rc-chitosan__photo-note {
@@ -239,7 +239,7 @@
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
     gap: 0;
-    height: calc(100vh - 96px);
+    height: calc(120vh - 96px);
     min-height: 560px;
     max-height: 780px;
     background: var(--black);
@@ -433,7 +433,7 @@
 
     .rc-chitosan__photo-note {
       top: 24px;
-      height: calc(100vh - 48px);
+      height: calc(120vh - 48px);
       min-height: 640px;
       grid-template-columns: 1fr;
       grid-template-rows: 1.15fr 0.85fr;
@@ -2176,7 +2176,7 @@
         var words = section.querySelectorAll(".rc-chitosan__scroll-word");
         var extraScroll = getMaxScroll(words.length);
 
-        section.style.height = "calc(100vh + " + extraScroll + "px)";
+        section.style.height = "calc(120vh + " + extraScroll + "px)";
       });
     }
 
