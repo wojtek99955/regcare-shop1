@@ -1,0 +1,2299 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RegCare — sekcje landing page</title>
+  <style>
+
+  /* ===== GLOBAL / PAGE ===== */
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: #f0ede6;
+    color: #080808;
+    font-family: "Suisse Screen", Arial, sans-serif;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .rc-chitosan,
+  .rc-peptide,
+  .reg-compare-landing,
+  .reg-faq {
+    padding: clamp(72px, 8vw, 120px) clamp(18px, 5vw, 48px);
+  }
+
+  .rc-chitosan,
+  .reg-compare-landing {
+    background: #f9f7f4;
+  }
+
+
+  /* ===== SECTION 01: CHITOSAN ===== */
+
+  .rc-chitosan {
+    --red: #bf2836;
+    --black: #080808;
+    --paper: #f9f7f4;
+    --muted: rgba(8, 8, 8, 0.58);
+    --line: rgba(8, 8, 8, 0.14);
+
+    width: 100%;
+    color: var(--black);
+    font-family: "Suisse Screen", Arial, sans-serif;
+  }
+
+  .rc-chitosan *,
+  .rc-chitosan *::before,
+  .rc-chitosan *::after {
+    box-sizing: border-box;
+  }
+
+  .rc-chitosan__wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .rc-chitosan__meta {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: clamp(42px, 6vw, 84px);
+  }
+
+  .rc-chitosan__chapter {
+    margin: 0;
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .rc-chitosan__title {
+    margin: 0;
+    max-width: 960px;
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 60px);
+  }
+
+  .rc-chitosan__title span {
+    color: var(--red);
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-weight: 300;
+    letter-spacing: -0.035em;
+  }
+
+  .rc-chitosan__lead {
+    max-width: 620px;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.65;
+  }
+
+  .rc-chitosan__field {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--line);
+  }
+
+  .rc-chitosan__row {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 28px;
+    padding: clamp(28px, 4vw, 46px) 0;
+    border-bottom: 1px solid var(--line);
+    transition: border-color 0.25s ease;
+  }
+
+  .rc-chitosan__row:hover {
+    border-color: rgba(191, 40, 54, 0.45);
+  }
+
+  .rc-chitosan__no {
+    color: rgba(8, 8, 8, 0.26);
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+    font-weight: 300;
+  }
+
+  .rc-chitosan__name {
+    margin: 0;
+    max-width: 330px;
+    font-size: clamp(26px, 3vw, 42px);
+    line-height: 0.95;
+    letter-spacing: -0.065em;
+    font-weight: 300;
+  }
+
+  .rc-chitosan__copy {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .rc-chitosan__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+  }
+
+  .rc-chitosan__icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .rc-chitosan__copy p {
+    max-width: 560px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .rc-chitosan__photo-scroll {
+    position: relative;
+    margin-top: clamp(44px, 6vw, 76px);
+    height: calc(100vh + 800px);
+  }
+
+  .rc-chitosan__photo-note {
+    position: sticky;
+    top: 48px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    gap: 0;
+    height: calc(100vh - 96px);
+    min-height: 560px;
+    max-height: 780px;
+    background: var(--black);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .rc-chitosan__image {
+    position: relative;
+    min-height: 100%;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .rc-chitosan__image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 8, 0.78) 0%,
+        rgba(8, 8, 8, 0.36) 48%,
+        rgba(8, 8, 8, 0.14) 100%
+      ),
+      linear-gradient(0deg, rgba(8, 8, 8, 0.76) 0%, rgba(8, 8, 8, 0) 56%);
+  }
+
+  .rc-chitosan__image img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transform: scale(1);
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .rc-chitosan__scroll-words {
+    position: absolute;
+    left: clamp(22px, 4vw, 56px);
+    right: clamp(22px, 4vw, 56px);
+    bottom: clamp(46px, 5vw, 76px);
+    z-index: 3;
+    min-height: 190px;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .rc-chitosan__scroll-word {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    max-width: 640px;
+    opacity: 0;
+    transform: translate3d(180px, 0, 0);
+    filter: blur(10px);
+    will-change: transform, opacity, filter;
+  }
+
+  .rc-chitosan__scroll-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .rc-chitosan__scroll-kicker::before {
+    content: "";
+    width: 34px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .rc-chitosan__scroll-word strong {
+    display: block;
+    color: #fff;
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-size: clamp(48px, 7vw, 98px);
+    line-height: 0.78;
+    letter-spacing: -0.065em;
+    font-weight: 300;
+  }
+
+  .rc-chitosan__scroll-word p {
+    max-width: 430px;
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .rc-chitosan__scroll-progress {
+    position: absolute;
+    left: clamp(22px, 4vw, 56px);
+    right: clamp(22px, 4vw, 56px);
+    bottom: 24px;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    pointer-events: none;
+  }
+
+  .rc-chitosan__scroll-dot {
+    height: 2px;
+    background: rgba(255, 255, 255, 0.24);
+    overflow: hidden;
+  }
+
+  .rc-chitosan__scroll-dot::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s linear;
+  }
+
+  .rc-chitosan__scroll-dot.is-active::before,
+  .rc-chitosan__scroll-dot.is-past::before {
+    transform: scaleX(1);
+  }
+
+  .rc-chitosan__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: clamp(28px, 4vw, 52px);
+    border-left: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .rc-chitosan__label {
+    margin: 0 0 auto;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .rc-chitosan__body h3 {
+    margin: 120px 0 22px;
+    color: #fff;
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-size: clamp(42px, 5.6vw, 72px);
+    line-height: 0.86;
+    letter-spacing: -0.04em;
+    font-weight: 300;
+  }
+
+  .rc-chitosan__body p:not(.rc-chitosan__label) {
+    margin: 0;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 940px) {
+    .rc-chitosan__meta,
+    .rc-chitosan__row {
+      grid-template-columns: 1fr;
+    }
+
+    .rc-chitosan__chapter {
+      margin-bottom: -8px;
+    }
+
+    .rc-chitosan__row {
+      gap: 16px;
+    }
+
+    .rc-chitosan__photo-note {
+      top: 24px;
+      height: calc(100vh - 48px);
+      min-height: 640px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1.15fr 0.85fr;
+    }
+
+    .rc-chitosan__image {
+      min-height: 0;
+    }
+
+    .rc-chitosan__body {
+      border-left: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .rc-chitosan__body h3 {
+      margin-top: 50px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .rc-chitosan__title {
+      font-size: 38px;
+      letter-spacing: -0.065em;
+    }
+
+    .rc-chitosan__lead {
+      font-size: 15px;
+    }
+
+    .rc-chitosan__no {
+      font-size: 40px;
+    }
+
+    .rc-chitosan__name {
+      font-size: 28px;
+    }
+
+    .rc-chitosan__copy {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .rc-chitosan__photo-scroll {
+      margin-top: 44px;
+    }
+
+    .rc-chitosan__photo-note {
+      top: 16px;
+      height: calc(100vh - 32px);
+      min-height: 620px;
+    }
+
+    .rc-chitosan__scroll-words {
+      left: 20px;
+      right: 20px;
+      bottom: 54px;
+      min-height: 190px;
+    }
+
+    .rc-chitosan__scroll-word strong {
+      font-size: 52px;
+    }
+
+    .rc-chitosan__scroll-word p {
+      font-size: 14px;
+    }
+
+    .rc-chitosan__scroll-progress {
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+    }
+
+    .rc-chitosan__body {
+      padding: 24px 20px;
+    }
+
+    .rc-chitosan__body h3 {
+      margin-top: 38px;
+      font-size: 40px;
+    }
+  }
+
+
+  /* ===== SECTION 02: PEPTIDES ===== */
+
+  .rc-peptide {
+    --red: #bf2836;
+    --black: #080808;
+    --paper: #f9f7f4;
+    --cream: #f0ede6;
+    --muted: rgba(8, 8, 8, 0.58);
+    --line: rgba(8, 8, 8, 0.14);
+
+    width: 100%;
+    background: var(--cream);
+    color: var(--black);
+    font-family: "Suisse Screen", Arial, sans-serif;
+  }
+
+  .rc-peptide *,
+  .rc-peptide *::before,
+  .rc-peptide *::after {
+    box-sizing: border-box;
+  }
+
+  .rc-peptide__wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .rc-peptide__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+  }
+
+  .rc-peptide__copy {
+    position: sticky;
+    top: 88px;
+  }
+
+  .rc-peptide__chapter {
+    margin: 0 0 24px;
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .rc-peptide__title {
+    margin: 0;
+    max-width: 720px;
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 300;
+  }
+
+  .rc-peptide__title span {
+    color: var(--red);
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-weight: 300;
+    letter-spacing: -0.035em;
+  }
+
+  .rc-peptide__lead {
+    max-width: 620px;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.65;
+  }
+
+  .rc-peptide__lead strong {
+    color: var(--black);
+  }
+
+  .rc-peptide__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  .rc-peptide__tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.34);
+    color: rgba(8, 8, 8, 0.68);
+    font-size: 12px;
+    font-weight: 750;
+  }
+
+  .rc-peptide__tag--black {
+    background: black;
+    border-color: black;
+    color: #fff;
+  }
+
+  .rc-peptide__note {
+    margin-top: 34px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .rc-peptide__note b {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .rc-peptide__ba {
+    --position: 50%;
+    position: relative;
+    min-height: 680px;
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  .rc-peptide__ba::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background:
+      linear-gradient(180deg, rgba(8, 8, 8, 0.02) 0%, rgba(8, 8, 8, 0.12) 46%, rgba(8, 8, 8, 0.74) 100%),
+      linear-gradient(90deg, rgba(8, 8, 8, 0.35), transparent 38%, transparent);
+    pointer-events: none;
+  }
+
+  .rc-peptide__ba img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .rc-peptide__before {
+    z-index: 1;
+  }
+
+  .rc-peptide__after {
+    z-index: 2;
+    clip-path: inset(0 calc(100% - var(--position)) 0 0);
+  }
+
+  .rc-peptide__range {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: ew-resize;
+    margin: 0;
+  }
+
+  .rc-peptide__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--position);
+    z-index: 7;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.96);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .rc-peptide__handle {
+    position: absolute;
+    left: var(--position);
+    top: 50%;
+    z-index: 8;
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    color: var(--red);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.34);
+    pointer-events: none;
+  }
+
+  .rc-peptide__handle::before {
+    content: "↔";
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .rc-peptide__ba-label {
+    position: absolute;
+    top: 24px;
+    z-index: 9;
+    display: inline-flex;
+    padding: 10px 14px;
+    border-radius: 999px;
+    backdrop-filter: blur(14px);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .rc-peptide__ba-label--before {
+    left: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--black);
+  }
+
+  .rc-peptide__ba-label--after {
+    right: 24px;
+    background: var(--red);
+    color: #fff;
+  }
+
+  .rc-peptide__caption {
+    position: absolute;
+    left: clamp(24px, 4vw, 42px);
+    right: clamp(24px, 4vw, 42px);
+    bottom: clamp(24px, 4vw, 42px);
+    z-index: 9;
+    color: #fff;
+    pointer-events: none;
+  }
+
+  .rc-peptide__caption small {
+    display: block;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .rc-peptide__caption strong {
+    display: block;
+    max-width: 560px;
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-size: clamp(42px, 6vw, 74px);
+    line-height: 0.86;
+    letter-spacing: -0.04em;
+    font-weight: 300;
+  }
+
+  .rc-peptide__products {
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+
+  .rc-peptide__product {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 18px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--black);
+    text-decoration: none;
+    transition: transform 0.24s ease, border-color 0.24s ease;
+    width: 100%;
+  }
+
+  .rc-peptide__product:hover {
+    transform: translateX(8px);
+    border-color: rgba(191, 40, 54, 0.45);
+  }
+
+  .rc-peptide__product-img {
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.46);
+  }
+
+  .rc-peptide__product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.28s ease;
+  }
+
+  .rc-peptide__product:hover .rc-peptide__product-img img {
+    transform: scale(1.08);
+  }
+
+  .rc-peptide__product-content small {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .rc-peptide__product-content strong {
+    display: block;
+    font-size: clamp(17px, 1.8vw, 23px);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    font-weight: 400;
+  }
+
+  .rc-peptide__arrow {
+    color: var(--red);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  @media (max-width: 940px) {
+    .rc-peptide__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .rc-peptide__copy {
+      position: relative;
+      top: auto;
+    }
+
+    .rc-peptide__ba {
+      min-height: 560px;
+    }
+  }
+
+  @media (max-width: 640px) {
+
+    .rc-peptide__title {
+      font-size: 38px;
+      letter-spacing: -0.065em;
+    }
+
+    .rc-peptide__lead {
+      font-size: 15px;
+    }
+
+    .rc-peptide__ba {
+      min-height: 500px;
+    }
+
+    .rc-peptide__caption strong {
+      font-size: 38px;
+    }
+
+    .rc-peptide__product {
+      grid-template-columns: 56px 1fr 18px;
+      gap: 12px;
+    }
+
+    .rc-peptide__product-img {
+      width: 56px;
+      height: 56px;
+    }
+  }
+
+
+  /* ===== SECTION 03: REGCARE EFFECTS ===== */
+
+  .reg-compare-landing {
+    --red: #bf2836;
+    --black: #080808;
+    --paper: #f9f7f4;
+    --cream: #f0ede6;
+    --muted: rgba(8, 8, 8, 0.58);
+    --line: rgba(8, 8, 8, 0.12);
+    --soft-red: rgba(191, 40, 54, 0.08);
+
+    width: 100%;
+    color: var(--black);
+    font-family: "Suisse Screen", Arial, sans-serif;
+  }
+
+  .reg-compare-landing *,
+  .reg-compare-landing *::before,
+  .reg-compare-landing *::after {
+    box-sizing: border-box;
+  }
+
+  .reg-compare-landing__wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .reg-compare-landing__top {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(300px, 0.55fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: end;
+    margin-bottom: clamp(38px, 5vw, 64px);
+  }
+
+  .reg-compare-landing__kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 18px;
+    color: var(--red);
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .reg-compare-landing__title {
+    max-width: 850px;
+    margin: 0;
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 300;
+  }
+
+  .reg-compare-landing__title span {
+    color: var(--red);
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-weight: 300;
+  }
+
+  .reg-compare-landing__lead {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .reg-compare-landing__features {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    align-items: stretch;
+  }
+
+  .reg-feature-card {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 520px;
+    background: var(--black);
+    color: #fff;
+    isolation: isolate;
+  }
+
+  .reg-feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 8, 8, 0.04) 0%,
+        rgba(8, 8, 8, 0.06) 38%,
+        rgba(8, 8, 8, 0.48) 72%,
+        rgba(8, 8, 8, 0.72) 100%
+      ),
+      radial-gradient(
+        circle at 84% 16%,
+        rgba(191, 40, 54, 0.24),
+        transparent 34%
+      );
+    pointer-events: none;
+  }
+
+  .reg-feature-card__image {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  .reg-feature-card__image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: scale(1.2);
+    transition: transform 0.65s ease;
+  }
+
+  .reg-feature-card:hover .reg-feature-card__image img {
+    transform: scale(1.07);
+  }
+
+  .reg-feature-card__number {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: 4;
+    color: rgba(255, 255, 255, 0.76);
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+    font-size: 52px;
+    line-height: 0.8;
+    letter-spacing: -0.06em;
+    font-weight: 300;
+    pointer-events: none;
+  }
+
+  .reg-feature-card__content {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 5;
+    padding: 20px;
+    min-height: 245px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  }
+
+  .reg-feature-card__eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    line-height: 1.2;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .reg-feature-card h3 {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(24px, 2.4vw, 34px);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    font-weight: 300;
+  }
+
+  .reg-feature-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.74);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .reg-feature-card__tag {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 32px;
+    margin-top: 18px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 11px;
+    font-weight: 750;
+  }
+
+  .reg-feature-card__tag--red {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+  }
+
+  .reg-compare-landing__cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: center;
+    margin-top: 18px;
+    padding: 4rem 2rem;
+    background: var(--black);
+    color: #fff;
+  }
+
+  .reg-compare-landing__cta strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: clamp(22px, 2.8vw, 34px);
+    line-height: 1;
+    letter-spacing: -0.055em;
+    font-weight: 300;
+  }
+
+  .reg-compare-landing__cta span {
+    display: block;
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .reg-compare-landing__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 13px 20px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition:
+      background 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .reg-compare-landing__button:hover {
+    background: var(--red);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 1100px) {
+    .reg-compare-landing__features {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reg-feature-card {
+      min-height: 500px;
+    }
+  }
+
+  @media (max-width: 920px) {
+    .reg-compare-landing__top,
+    .reg-compare-landing__cta {
+      grid-template-columns: 1fr;
+    }
+
+    .reg-compare-landing__button {
+      width: fit-content;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .reg-compare-landing__title {
+      font-size: 38px;
+      letter-spacing: -0.065em;
+    }
+
+    .reg-compare-landing__lead {
+      font-size: 15px;
+    }
+
+    .reg-compare-landing__features {
+      grid-template-columns: 1fr;
+    }
+
+    .reg-feature-card {
+      min-height: 520px;
+    }
+
+    .reg-feature-card__number {
+      top: 20px;
+      left: 20px;
+      font-size: 48px;
+    }
+
+    .reg-feature-card__content {
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      min-height: auto;
+      padding: 20px;
+    }
+
+    .reg-feature-card h3 {
+      font-size: 30px;
+    }
+
+    .reg-compare-landing__button {
+      width: 100%;
+    }
+  }
+
+
+  /* ===== SECTION 04: FAQ ===== */
+
+  .reg-faq {
+    --red: #bf2836;
+    --black: #080808;
+    --bg: #f0ede6;
+    --card: rgba(255, 255, 255, 0.48);
+    --card-strong: rgba(255, 255, 255, 0.72);
+    --line: rgba(8, 8, 8, 0.1);
+    --muted: rgba(8, 8, 8, 0.62);
+
+    width: 100%;
+    background: var(--bg);
+    color: var(--black);
+    font-family: "Suisse Screen", Arial, sans-serif;
+  }
+
+  .reg-faq *,
+  .reg-faq *::before,
+  .reg-faq *::after {
+    box-sizing: border-box;
+  }
+
+  .reg-faq__wrap {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+  }
+
+  .reg-faq__label {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 16px;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    background: #f0ede6;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 850;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .reg-faq__head {
+    display: grid;
+    gap: 18px;
+    margin-bottom: 34px;
+  }
+
+  .reg-faq__title {
+    max-width: 780px;
+    margin: 0;
+    font-family: "Editor's Note", "Editors Note", Georgia, serif;
+    font-size: clamp(38px, 6vw, 60px);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    font-weight: 300;
+  }
+
+  .reg-faq__title span {
+    color: var(--red);
+    font-family: "Editor's Note", "Editors Note", Georgia, serif !important;
+  }
+
+  .reg-faq__lead {
+    max-width: 560px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .reg-faq__grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #e8e4e0;
+    background: var(--card);
+    overflow: hidden;
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .faq-item.is-open {
+    background: var(--card-strong);
+    border-color: rgba(191, 40, 54, 0.28);
+  }
+
+  .faq-question {
+    width: 100%;
+    min-height: 76px;
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr 42px;
+    gap: 18px;
+    align-items: center;
+    border: 0;
+    background: transparent;
+    color: var(--black);
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .faq-question h3 {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+
+  .faq-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(191, 40, 54, 0.1);
+    color: var(--red);
+    position: relative;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform 0.25s ease;
+  }
+
+  .faq-icon::after {
+    transform: rotate(90deg);
+  }
+
+  .faq-item.is-open .faq-icon {
+    background: var(--red);
+    color: #fff;
+    transform: rotate(180deg);
+  }
+
+  .faq-item.is-open .faq-icon::after {
+    transform: rotate(0deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.32s ease;
+  }
+
+  .faq-answer__inner {
+    padding: 0 22px 24px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .faq-answer__inner p {
+    margin: 0;
+  }
+
+  .faq-answer__inner strong {
+    color: var(--black);
+  }
+
+  @media (min-width: 860px) {
+    .reg-faq__head {
+      grid-template-columns: 1fr 0.72fr;
+      align-items: end;
+      gap: 54px;
+      margin-bottom: 44px;
+    }
+
+    .faq-question {
+      padding: 24px 28px;
+    }
+
+    .faq-answer__inner {
+      padding: 0 28px 28px;
+    }
+
+    .faq-question h3 {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .reg-faq {
+      padding: 64px 14px;
+    }
+
+    .reg-faq__title {
+      font-size: 42px;
+    }
+
+    .faq-question {
+      grid-template-columns: 1fr 38px;
+      padding: 18px;
+    }
+
+    .faq-question h3 {
+      font-size: 18px;
+    }
+
+    .faq-icon {
+      width: 38px;
+      height: 38px;
+    }
+
+    .faq-answer__inner {
+      padding: 0 18px 20px;
+      font-size: 15px;
+    }
+  }
+
+  </style>
+</head>
+<body>
+<section class="rc-chitosan">
+  <div class="rc-chitosan__wrap">
+    <div class="rc-chitosan__meta">
+      <p class="rc-chitosan__chapter">01 / Technologia</p>
+
+      <div>
+        <h2 class="rc-chitosan__title">
+          Składnik, który nie znika.
+          <br />
+          Pracuje na skórze
+        </h2>
+
+        <p class="rc-chitosan__lead">
+          Chitozan mikrokrystaliczny w RegCare nie jest zwykłym dodatkiem do
+          formuły. To bioadhezyjny składnik, który po aplikacji tworzy na skórze
+          cienką, elastyczną warstwę wspierającą komfort i barierę.
+        </p>
+      </div>
+    </div>
+
+    <div class="rc-chitosan__field">
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">01</div>
+
+        <h3 class="rc-chitosan__name">Własna technologia</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/star-12.svg"
+              alt="" />
+          </span>
+
+          <p>
+            Opracowaliśmy formę chitozanu mikrokrystalicznego, dzięki której
+            składnik lepiej łączy się z formułą kosmetyczną i tworzy na skórze
+            lekką, bioadhezyjną warstwę ochronną.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">02</div>
+
+        <h3 class="rc-chitosan__name">Działa jak magnes</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/magnet-1.svg"
+              alt="" />
+          </span>
+
+          <p>
+            Skóra i włosy mają ładunek ujemny, dlatego chitozan
+            mikrokrystaliczny przyciąga się do ich powierzchni i lepiej
+            utrzymuje się po aplikacji.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">03</div>
+
+        <h3 class="rc-chitosan__name">Niewidzialna tarcza</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/shield-1.svg"
+              alt="" />
+          </span>
+
+          <p>
+            Po aplikacji zostawia cienką, elastyczną warstwę, która wspiera
+            barierę skóry i pomaga ograniczyć uczucie przesuszenia.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">04</div>
+
+        <h3 class="rc-chitosan__name">Zatrzymanie wilgoci</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/drops-1.svg"
+              alt="" />
+          </span>
+
+          <p>
+            Film chitozanowy wspiera ograniczenie TEWL, czyli przeznaskórkowej
+            utraty wody.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">05</div>
+
+        <h3 class="rc-chitosan__name">Naturalny polimer</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/leaf-1.svg"
+              alt="" />
+          </span>
+
+          <p>
+            Chitozan to składnik pochodzenia naturalnego, może być pozyskiwany
+            ze skorup organizmów morskich lub z grzybów.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="rc-chitosan__photo-scroll">
+      <div class="rc-chitosan__photo-note">
+        <div class="rc-chitosan__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/chitosan-on-skin.webp"
+            alt="Wizualizacja filmu chitozanowego na powierzchni skóry" />
+
+          <div class="rc-chitosan__scroll-words" aria-hidden="true">
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker"
+                >01 / film chitozanowy</span
+              >
+              <strong>Bariera</strong>
+              <p>
+                Cienka, elastyczna warstwa wspiera powierzchnię skóry po
+                aplikacji.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">02 / bioadhezja</span>
+              <strong>Ochrona</strong>
+              <p>
+                Chitozan lepiej utrzymuje się na skórze, tworząc efekt lekkiej
+                tarczy.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">03 / komfort skóry</span>
+              <strong>Ukojenie</strong>
+              <p>
+                Pomaga ograniczyć uczucie przesuszenia, napięcia i dyskomfortu.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker"
+                >04 / utrzymanie wilgoci</span
+              >
+              <strong>Nawilżenie</strong>
+              <p>
+                Film chitozanowy wspiera ograniczenie przeznaskórkowej utraty
+                wody.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">05 / biomateriał</span>
+              <strong>RegCare</strong>
+              <p>
+                Technologia biomateriałowa opracowana z myślą o codziennej
+                pielęgnacji.
+              </p>
+            </div>
+          </div>
+
+          <div class="rc-chitosan__scroll-progress" aria-hidden="true">
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+          </div>
+        </div>
+
+        <div class="rc-chitosan__body">
+          <p class="rc-chitosan__label">bioadhezyjna warstwa</p>
+
+          <h3>Nie tylko nawilżenie. Bariera.</h3>
+
+          <p>
+            Chitozan mikrokrystaliczny działa jak lekka, niewidoczna siateczka
+            ochronna. Pomaga skórze dłużej utrzymać komfort, ogranicza uczucie
+            przesuszenia i wspiera działanie całej formuły.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rc-peptide">
+  <div class="rc-peptide__wrap">
+    <div class="rc-peptide__grid">
+      <div class="rc-peptide__copy">
+        <p class="rc-peptide__chapter">02 / Peptydy</p>
+
+        <h2 class="rc-peptide__title">
+          Efekt botoxu bez igieł.
+        </h2>
+
+        <p class="rc-peptide__lead">
+          Połączenie <strong>chitozanu mikrokrystalicznego</strong> z peptydami
+          <strong>Argireline®</strong> i <strong>SYN®-AKE</strong> wspiera
+          pielęgnację skóry dojrzałej, bardzo dojrzałej oraz skóry z widocznymi
+          zmarszczkami mimicznymi.
+        </p>
+
+        <div class="rc-peptide__tags">
+          <span class="rc-peptide__tag rc-peptide__tag--black">Argireline®</span>
+          <span class="rc-peptide__tag rc-peptide__tag--black">SYN®-AKE</span>
+          <span class="rc-peptide__tag">skóra dojrzała</span>
+          <span class="rc-peptide__tag">profilaktyka zmarszczek</span>
+        </div>
+
+        <div class="rc-peptide__note">
+          <b>Dla kogo?</b>
+          Dla skóry dojrzałej i bardzo dojrzałej oraz jako profilaktyka przeciw
+          powstawaniu i utrwalaniu się zmarszczek mimicznych u osób młodszych.
+        </div>
+      </div>
+
+      <div>
+        <div class="rc-peptide__ba" data-rc-peptide-ba>
+          <img
+            class="rc-peptide__before"
+            src="https://chitomed-files.b-cdn.net/regcare/botox-like-before.webp"
+            alt="Skóra przed zastosowaniem kremu"
+          />
+
+          <img
+            class="rc-peptide__after"
+            src="https://chitomed-files.b-cdn.net/regcare/botox-like-after.webp"
+            alt="Skóra po zastosowaniu kremu"
+          />
+
+          <span class="rc-peptide__ba-label rc-peptide__ba-label--before">Przed</span>
+          <span class="rc-peptide__ba-label rc-peptide__ba-label--after">Po</span>
+
+          <div class="rc-peptide__line"></div>
+          <div class="rc-peptide__handle"></div>
+
+          <input
+            class="rc-peptide__range"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Porównaj efekt przed i po"
+          />
+
+          <div class="rc-peptide__caption">
+            <small>porównanie wizualne</small>
+            <strong>Przeciągnij i zobacz różnicę.</strong>
+          </div>
+        </div>
+
+        <div class="rc-peptide__products">
+          <a
+            class="rc-peptide__product"
+            href="https://regcare.eu/pl/p/Krem-odmladzajacy-CHITOSAN-Syn-Ake-i-Argirelina-30ml.-/38"
+          >
+            <span class="rc-peptide__product-img">
+              <img
+                src="https://regcare.eu/environment/cache/images/productGfx_721_300_300/krempeptydowy2peptydyzchitoanemsilnieodmladzajacy.png"
+                alt="Krem CHITOSAN Syn-Ake i Argirelina"
+              />
+            </span>
+
+            <span class="rc-peptide__product-content">
+              <small>produkt 01</small>
+              <strong>Chitosan Syn®-Ake + Argirelina</strong>
+            </span>
+
+            <span class="rc-peptide__arrow">→</span>
+          </a>
+
+          <a
+            class="rc-peptide__product"
+            href="https://regcare.eu/pl/p/Krem-CHITOSAN-Syn-Ake-50ml.-/35"
+          >
+            <span class="rc-peptide__product-img">
+              <img
+                src="https://regcare.eu/environment/cache/images/productGfx_725_300_300/przeciwzmarszczkowySyn_Acekremzchitozanemregcare.png"
+                alt="Krem CHITOSAN Syn-Ake"
+              />
+            </span>
+
+            <span class="rc-peptide__product-content">
+              <small>produkt 02</small>
+              <strong>Chitosan Syn®-Ake</strong>
+            </span>
+
+            <span class="rc-peptide__arrow">→</span>
+          </a>
+
+          <a
+            class="rc-peptide__product"
+            href="https://regcare.eu/pl/p/Krem-CHITOSAN-Argirelina-50ml.-/28"
+          >
+            <span class="rc-peptide__product-img">
+              <img
+                src="https://regcare.eu/environment/cache/images/productGfx_726_300_300/argirelinenewwww.png"
+                alt="Krem CHITOSAN Argirelina"
+              />
+            </span>
+
+            <span class="rc-peptide__product-content">
+              <small>produkt 03</small>
+              <strong>Chitosan Argirelina®</strong>
+            </span>
+
+            <span class="rc-peptide__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section
+  class="reg-compare-landing"
+  id="efekty-pielegnacji-regcare"
+  aria-labelledby="efekty-pielegnacji-regcare-title">
+  <div class="reg-compare-landing__wrap">
+    <header class="reg-compare-landing__top">
+      <div>
+        <p class="reg-compare-landing__kicker">Codzienne doświadczenie</p>
+
+        <h2
+          class="reg-compare-landing__title"
+          id="efekty-pielegnacji-regcare-title">
+          Co zyskujesz przy regularnym stosowaniu
+        </h2>
+      </div>
+
+      <p class="reg-compare-landing__lead">
+        Za technologią stoi konkretne, codzienne doświadczenie. Oto, czego
+        możesz się spodziewać, stosując kosmetyki RegCare regularnie.
+      </p>
+    </header>
+
+    <div
+      class="reg-compare-landing__features"
+      aria-label="Najważniejsze odczuwalne efekty pielęgnacji RegCare">
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/chitosan-on-skin.webp"
+            alt="Lekka bioadhezyjna warstwa na powierzchni skóry" />
+        </div>
+
+        <span class="reg-feature-card__number">01</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            po aplikacji
+          </span> -->
+
+          <h3>Długotrwały komfort</h3>
+
+          <p>
+            Formuła pomaga utrzymać składniki pielęgnacyjne bliżej powierzchni
+            skóry, dzięki czemu uczucie nawilżenia i ukojenia może utrzymywać
+            się dłużej po aplikacji.
+          </p>
+
+          <span class="reg-feature-card__tag"> efekt filmu ochronnego </span>
+        </div>
+      </article>
+
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/chitosan-blue.webp"
+            alt="Skóra z dłuższym uczuciem nawilżenia po aplikacji kremu" />
+        </div>
+
+        <span class="reg-feature-card__number">02</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            nawilżenie
+          </span> -->
+
+          <h3>Dłuższe uczucie nawilżenia</h3>
+
+          <p>
+            Pomaga ograniczać utratę wilgoci, dzięki czemu skóra może dłużej
+            zachować uczucie miękkości, elastyczności i komfortu.
+          </p>
+
+          <span class="reg-feature-card__tag">
+            mniej uczucia przesuszenia
+          </span>
+        </div>
+      </article>
+
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/regcare-cream-on-skin.webp"
+            alt="Wsparcie bariery ochronnej skóry przez dermokosmetyki RegCare" />
+        </div>
+
+        <span class="reg-feature-card__number">03</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            bariera skóry
+          </span> -->
+
+          <h3>Wsparcie bariery skóry</h3>
+
+          <p>
+            Lekka warstwa ochronna wspiera naturalną barierę skóry i pomaga
+            zmniejszać dyskomfort związany z suchością lub podrażnieniem.
+          </p>
+
+          <span class="reg-feature-card__tag"> większy komfort skóry </span>
+        </div>
+      </article>
+
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/regcare-model-11.webp"
+            alt="Gładsza i bardziej miękka skóra po zastosowaniu kosmetyków RegCare" />
+        </div>
+
+        <span class="reg-feature-card__number">04</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            efekt na skórze
+          </span> -->
+
+          <h3>Miękkość i wygładzenie</h3>
+
+          <p>
+            Po aplikacji skóra staje się przyjemniejsza w dotyku, bardziej
+            gładka i optycznie świeższa — bez ciężkiego, tłustego filmu.
+          </p>
+
+          <span class="reg-feature-card__tag"> lekka formuła </span>
+        </div>
+      </article>
+    </div>
+
+    <aside
+      class="reg-compare-landing__cta"
+      aria-label="Przejście do kategorii kremów do twarzy RegCare">
+      <div>
+        <strong>Technologia, którą czuć na skórze.</strong>
+        <br />
+        <span>
+          Wybierz dermokosmetyki RegCare z chitozanem mikrokrystalicznym i
+          poczuj różnicę w komforcie, gładkości oraz nawilżeniu skóry.
+        </span>
+      </div>
+
+      <a
+        class="reg-compare-landing__button"
+        href="/pl/c/Kremy-do-twarzy/17"
+        aria-label="Zobacz kremy do twarzy RegCare z chitozanem mikrokrystalicznym">
+        Zobacz nasze produkty
+      </a>
+    </aside>
+  </div>
+</section>
+
+
+<section class="reg-faq">
+  <div class="reg-faq__wrap">
+    <div class="reg-faq__head">
+      <div>
+        <!-- <div class="reg-faq__label">Q&A</div> -->
+
+        <h2 class="reg-faq__title">
+          Najczęstsze
+          <span>pytania</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="reg-faq__grid">
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czym jest chitozan mikrokrystaliczny?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              To forma chitozanu opracowana tak, aby lepiej pracowała w
+              kosmetyku. W RegCare jest kluczowym biomateriałem, który pomaga
+              tworzyć na skórze lekką, bioadhezyjną warstwę ochronną.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Co chitozan daje skórze?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Pomaga ograniczać utratę wilgoci, wspiera barierę skóry i poprawia
+              komfort po aplikacji. Najprościej: działa jak delikatna,
+              niewidoczna siateczka, która pomaga skórze dłużej utrzymać
+              nawilżenie.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czy produkty RegCare są dobre dla skóry wrażliwej?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Formuły RegCare są tworzone z myślą o skórze wymagającej wsparcia
+              bariery: suchej, wrażliwej, reaktywnej lub osłabionej. Warto
+              jednak zawsze dobrać produkt do aktualnego stanu skóry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czym RegCare różni się od standardowych kosmetyków?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              RegCare wyróżnia się tym, że kluczowym elementem formuł jest
+              chitozan mikrokrystaliczny. Tworzy na skórze lekką warstwę
+              ochronną, wspiera utrzymanie nawilżenia i pomaga składnikom
+              aktywnym dłużej pracować na powierzchni naskórka.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czy kremy z chitozanem są ciężkie albo tłuste?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Nie muszą być. Chitozan tworzy lekki film ochronny, ale nie
+              oznacza to ciężkiej, tłustej warstwy. Efekt zależy od konkretnej
+              formuły produktu.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Jak często stosować produkty RegCare?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Najczęściej produkty pielęgnacyjne stosuje się codziennie — rano
+              i/lub wieczorem, zgodnie z przeznaczeniem konkretnego kosmetyku.
+              Przy skórze bardzo wrażliwej warto wprowadzać nowe produkty
+              stopniowo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  (function () {
+    var PX_PER_STEP = 760;
+    var MOVE_X = 600;
+
+    /*
+      Moc przybliżenia obrazu przez cały pinned scroll.
+      U Ciebie jest mocniej ustawione: 0.65.
+    */
+    var IMAGE_ZOOM = 0.75;
+
+    /*
+      To robi efekt "zamarcia" tekstu, kiedy jest idealnie widoczny.
+      0.25 = krótszy hold
+      0.34 = naturalny hold
+      0.45 = dłuższe zatrzymanie
+      0.55 = bardzo wyraźne zatrzymanie
+    */
+    var HOLD_RATIO = 0.52;
+
+    /*
+      Dodatkowe zatrzymanie na ostatnim napisie,
+      zanim cała sticky sekcja zacznie odjeżdżać.
+    */
+    var FINAL_HOLD_RATIO = 0.45;
+
+    var sections = document.querySelectorAll(".rc-chitosan__photo-scroll");
+
+    if (!sections.length) return;
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(value, max));
+    }
+
+    function easeInOut(value) {
+      value = clamp(value, 0, 1);
+      return value * value * (3 - 2 * value);
+    }
+
+    function getMaxScroll(wordsLength) {
+      if (wordsLength <= 1) return 0;
+
+      return (wordsLength - 1) * PX_PER_STEP + PX_PER_STEP * FINAL_HOLD_RATIO;
+    }
+
+    function getRawProgress(localScroll, wordsLength) {
+      if (wordsLength <= 1) return 0;
+
+      var lastIndex = wordsLength - 1;
+      var transitionScrollEnd = lastIndex * PX_PER_STEP;
+
+      /*
+        Po dojściu do ostatniego napisu zostajemy na nim jeszcze chwilę.
+      */
+      if (localScroll >= transitionScrollEnd) {
+        return lastIndex;
+      }
+
+      var segmentIndex = Math.floor(localScroll / PX_PER_STEP);
+      segmentIndex = clamp(segmentIndex, 0, lastIndex - 1);
+
+      var segmentStart = segmentIndex * PX_PER_STEP;
+      var segmentOffset = localScroll - segmentStart;
+      var segmentProgress = segmentOffset / PX_PER_STEP;
+
+      /*
+        Pierwsza część każdego segmentu to "freeze".
+        Tekst jest wtedy na środku, bez blura, bez ruchu.
+      */
+      if (segmentProgress <= HOLD_RATIO) {
+        return segmentIndex;
+      }
+
+      /*
+        Dopiero po holdzie zaczyna się płynne przejście do kolejnego tekstu.
+      */
+      var moveProgress = (segmentProgress - HOLD_RATIO) / (1 - HOLD_RATIO);
+      moveProgress = easeInOut(moveProgress);
+
+      return segmentIndex + moveProgress;
+    }
+
+    function setScrollHeights() {
+      sections.forEach(function (section) {
+        var words = section.querySelectorAll(".rc-chitosan__scroll-word");
+        var extraScroll = getMaxScroll(words.length);
+
+        section.style.height = "calc(100vh + " + extraScroll + "px)";
+      });
+    }
+
+    function updatePinnedSections() {
+      sections.forEach(function (section) {
+        var sticky = section.querySelector(".rc-chitosan__photo-note");
+        var image = section.querySelector(".rc-chitosan__image img");
+        var words = section.querySelectorAll(".rc-chitosan__scroll-word");
+        var dots = section.querySelectorAll(".rc-chitosan__scroll-dot");
+
+        if (!sticky || !words.length) return;
+
+        var rect = section.getBoundingClientRect();
+        var stickyTop = parseFloat(window.getComputedStyle(sticky).top) || 0;
+
+        var maxScroll = getMaxScroll(words.length);
+        var localScroll = -rect.top + stickyTop;
+
+        localScroll = clamp(localScroll, 0, maxScroll);
+
+        /*
+          sectionProgress idzie od 0 do 1 przez całe scrollowanie sticky sekcji.
+          Tym sterujemy delikatnym zoomem zdjęcia w tle.
+        */
+        var sectionProgress = maxScroll > 0 ? localScroll / maxScroll : 0;
+        sectionProgress = clamp(sectionProgress, 0, 1);
+
+        if (image) {
+          var imageScale = 1 + sectionProgress * IMAGE_ZOOM;
+          image.style.transform = "scale(" + imageScale.toFixed(4) + ")";
+        }
+
+        /*
+          rawProgress teraz ma wbudowany hold.
+          Czyli przez część scrolla zostaje dokładnie np. 0, 1, 2, 3...
+          Wtedy tekst jest bez blura i stoi nieruchomo.
+        */
+        var rawProgress = getRawProgress(localScroll, words.length);
+        var activeIndex = Math.round(rawProgress);
+        activeIndex = clamp(activeIndex, 0, words.length - 1);
+
+        words.forEach(function (word, index) {
+          var distance = index - rawProgress;
+
+          /*
+            distance:
+            1 = tekst po prawej, dopiero wchodzi
+            0 = tekst aktywny na środku, bez blura
+            -1 = tekst po lewej, wychodzi
+          */
+          var limitedDistance = clamp(distance, -1.3, 1.3);
+          var translateX = limitedDistance * MOVE_X;
+
+          var opacity = 1 - Math.abs(distance);
+          opacity = clamp(opacity, 0, 1);
+
+          var blur = Math.abs(distance) * 10;
+          blur = clamp(blur, 0, 10);
+
+          var scale = 1 - Math.abs(distance) * 0.045;
+          scale = clamp(scale, 0.94, 1);
+
+          word.style.opacity = opacity.toFixed(3);
+          word.style.transform =
+            "translate3d(" +
+            translateX.toFixed(2) +
+            "px, 0, 0) scale(" +
+            scale.toFixed(3) +
+            ")";
+          word.style.filter = "blur(" + blur.toFixed(2) + "px)";
+          word.style.zIndex = String(100 - Math.round(Math.abs(distance) * 10));
+        });
+
+        dots.forEach(function (dot, index) {
+          dot.classList.toggle("is-active", index === activeIndex);
+          dot.classList.toggle("is-past", index < activeIndex);
+        });
+      });
+    }
+
+    var ticking = false;
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          updatePinnedSections();
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    }
+
+    setScrollHeights();
+    updatePinnedSections();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    window.addEventListener("resize", function () {
+      setScrollHeights();
+      updatePinnedSections();
+    });
+  })();
+
+
+
+  (() => {
+    const initRcPeptideBa = (root = document) => {
+      const sliders = root.querySelectorAll
+        ? root.querySelectorAll("[data-rc-peptide-ba]")
+        : [];
+
+      sliders.forEach((slider) => {
+        if (slider.dataset.rcReady === "true") return;
+
+        const range = slider.querySelector(".rc-peptide__range");
+        if (!range) return;
+
+        const update = () => {
+          slider.style.setProperty("--position", `${range.value}%`);
+        };
+
+        range.addEventListener("input", update);
+        update();
+
+        slider.dataset.rcReady = "true";
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => initRcPeptideBa());
+    } else {
+      initRcPeptideBa();
+    }
+
+    window.addEventListener("pageshow", () => initRcPeptideBa());
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) initRcPeptideBa(node);
+        });
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
+    });
+  })();
+
+
+
+  (() => {
+    const initRegFaq = (root = document) => {
+      const faqBlocks = root.querySelectorAll ? root.querySelectorAll(".reg-faq") : [];
+
+      faqBlocks.forEach((faqBlock) => {
+        if (faqBlock.dataset.regFaqReady === "true") return;
+
+        const faqItems = faqBlock.querySelectorAll(".faq-item");
+
+        function setAnswerHeight(item) {
+          const answer = item.querySelector(".faq-answer");
+          const inner = item.querySelector(".faq-answer__inner");
+
+          if (!answer || !inner) return;
+
+          if (item.classList.contains("is-open")) {
+            answer.style.maxHeight = inner.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+        }
+
+        faqItems.forEach((item) => {
+          const button = item.querySelector(".faq-question");
+          if (!button) return;
+
+          item.classList.remove("is-open");
+          button.setAttribute("aria-expanded", "false");
+          setAnswerHeight(item);
+
+          button.addEventListener("click", () => {
+            const isOpen = item.classList.contains("is-open");
+
+            faqItems.forEach((otherItem) => {
+              const otherButton = otherItem.querySelector(".faq-question");
+              otherItem.classList.remove("is-open");
+              if (otherButton) otherButton.setAttribute("aria-expanded", "false");
+              setAnswerHeight(otherItem);
+            });
+
+            if (!isOpen) {
+              item.classList.add("is-open");
+              button.setAttribute("aria-expanded", "true");
+              setAnswerHeight(item);
+            }
+          });
+        });
+
+        window.addEventListener("resize", () => {
+          faqItems.forEach(setAnswerHeight);
+        });
+
+        faqBlock.dataset.regFaqReady = "true";
+      });
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => initRegFaq());
+    } else {
+      initRegFaq();
+    }
+
+    window.addEventListener("pageshow", () => initRegFaq());
+  })();
+
+</script>
+</body>
+</html>
