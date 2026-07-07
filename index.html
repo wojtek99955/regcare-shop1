@@ -1,6 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>RegCare - połączone sekcje</title>
+
+  <style>
+    html {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      overflow-x: clip;
+      background: #f9f7f4;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      background: #f9f7f4;
+      color: #080808;
+      overflow-x: clip;
+    }
+
+    @supports not (overflow: clip) {
+      html,
+      body {
+        overflow-x: visible;
+      }
+    }
+
+    img,
+    svg,
+    video,
+    canvas {
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+  </style>
+
 <style>
-  .regcare-combined-page {
+.regcare-combined-page {
     width: 100%;
+    overflow-x: clip;
     background: #f9f7f4;
     color: #080808;
   }
@@ -8,6 +61,20 @@
   .regcare-combined-page,
   .regcare-combined-page * {
     box-sizing: border-box;
+  }
+
+  /* Sticky fix: żaden rodzic sekcji sticky nie może być scroll-containerem.
+     overflow-x: hidden na wrapperze potrafi zepsuć position: sticky. */
+  @supports not (overflow: clip) {
+    .regcare-combined-page {
+      overflow-x: visible;
+    }
+  }
+
+  .regcare-combined-page .rc-chitosan,
+  .regcare-combined-page .rc-chitosan__wrap,
+  .regcare-combined-page .rc-chitosan__photo-scroll {
+    overflow: visible;
   }
 
   .regcare-combined-page .rc-chitosan,
@@ -31,7 +98,7 @@
     }
   }
 
-  .rc-chitosan {
+.rc-chitosan {
     --red: #bf2836;
     --black: #080808;
     --paper: #f9f7f4;
@@ -378,6 +445,7 @@
 
     .rc-chitosan__body {
       border-left: 0;
+      /* border-top: 1px solid rgba(255, 255, 255, 0.16); */
     }
 
     .rc-chitosan__body h3 {
@@ -488,7 +556,7 @@
     }
   }
 
-  .rc-peptide {
+.rc-peptide {
     --red: #bf2836;
     --black: #080808;
     --paper: #f9f7f4;
@@ -620,12 +688,7 @@
     inset: 0;
     z-index: 4;
     background:
-      linear-gradient(
-        180deg,
-        rgba(8, 8, 8, 0.02) 0%,
-        rgba(8, 8, 8, 0.12) 46%,
-        rgba(8, 8, 8, 0.74) 100%
-      ),
+      linear-gradient(180deg, rgba(8, 8, 8, 0.02) 0%, rgba(8, 8, 8, 0.12) 46%, rgba(8, 8, 8, 0.74) 100%),
       linear-gradient(90deg, rgba(8, 8, 8, 0.35), transparent 38%, transparent);
     pointer-events: none;
   }
@@ -766,9 +829,7 @@
     border-bottom: 1px solid var(--line);
     color: var(--black);
     text-decoration: none;
-    transition:
-      transform 0.24s ease,
-      border-color 0.24s ease;
+    transition: transform 0.24s ease, border-color 0.24s ease;
     width: 100%;
   }
 
@@ -834,6 +895,7 @@
   }
 
   @media (max-width: 640px) {
+
     .rc-peptide__title {
       font-size: 38px;
       letter-spacing: -0.065em;
@@ -862,7 +924,7 @@
     }
   }
 
-  .reg-compare-landing {
+.reg-compare-landing {
     --red: #bf2836;
     --black: #080808;
     --paper: #f9f7f4;
@@ -1189,7 +1251,7 @@
     }
   }
 
-  .reg-faq {
+.reg-faq {
     --red: #bf2836;
     --black: #080808;
     --bg: #f0ede6;
@@ -1401,615 +1463,661 @@
       font-size: 15px;
     }
   }
+
+
+  /* Dodatkowe zabezpieczenie mobile: media queries działają poprawnie z meta viewport w <head>. */
+  @media (max-width: 640px) {
+    .regcare-combined-page {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .regcare-combined-page .rc-chitosan,
+    .regcare-combined-page .rc-peptide,
+    .regcare-combined-page .reg-compare-landing,
+    .regcare-combined-page .reg-faq {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    .regcare-combined-page .rc-chitosan__wrap,
+    .regcare-combined-page .rc-peptide__wrap,
+    .regcare-combined-page .reg-compare-landing__wrap,
+    .regcare-combined-page .reg-faq__wrap {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+  }
+
 </style>
-
+</head>
+<body>
 <div class="regcare-combined-page">
-  <section class="rc-chitosan">
-    <div class="rc-chitosan__wrap">
-      <div class="rc-chitosan__meta">
-        <p class="rc-chitosan__chapter">01 / Technologia</p>
-
-        <div>
-          <h2 class="rc-chitosan__title">
-            Składnik, który nie znika.
-            <br />
-            Pracuje na skórze
-          </h2>
-
-          <p class="rc-chitosan__lead">
-            Chitozan mikrokrystaliczny w RegCare nie jest zwykłym dodatkiem do
-            formuły. To bioadhezyjny składnik, który po aplikacji tworzy na skórze
-            cienką, elastyczną warstwę wspierającą komfort i barierę.
-          </p>
-        </div>
-      </div>
-
-      <div class="rc-chitosan__field">
-        <article class="rc-chitosan__row">
-          <div class="rc-chitosan__no">01</div>
-
-          <h3 class="rc-chitosan__name">Własna technologia</h3>
-
-          <div class="rc-chitosan__copy">
-            <span class="rc-chitosan__icon">
-              <img
-                src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/star-12.svg"
-                alt=""
-              />
-            </span>
-
-            <p>
-              Opracowaliśmy formę chitozanu mikrokrystalicznego, dzięki której
-              składnik lepiej łączy się z formułą kosmetyczną i tworzy na skórze
-              lekką, bioadhezyjną warstwę ochronną.
-            </p>
-          </div>
-        </article>
-
-        <article class="rc-chitosan__row">
-          <div class="rc-chitosan__no">02</div>
-
-          <h3 class="rc-chitosan__name">Działa jak magnes</h3>
-
-          <div class="rc-chitosan__copy">
-            <span class="rc-chitosan__icon">
-              <img
-                src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/magnet-1.svg"
-                alt=""
-              />
-            </span>
-
-            <p>
-              Skóra i włosy mają ładunek ujemny, dlatego chitozan
-              mikrokrystaliczny przyciąga się do ich powierzchni i lepiej
-              utrzymuje się po aplikacji.
-            </p>
-          </div>
-        </article>
-
-        <article class="rc-chitosan__row">
-          <div class="rc-chitosan__no">03</div>
-
-          <h3 class="rc-chitosan__name">Niewidzialna tarcza</h3>
-
-          <div class="rc-chitosan__copy">
-            <span class="rc-chitosan__icon">
-              <img
-                src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/shield-1.svg"
-                alt=""
-              />
-            </span>
-
-            <p>
-              Po aplikacji zostawia cienką, elastyczną warstwę, która wspiera
-              barierę skóry i pomaga ograniczyć uczucie przesuszenia.
-            </p>
-          </div>
-        </article>
-
-        <article class="rc-chitosan__row">
-          <div class="rc-chitosan__no">04</div>
-
-          <h3 class="rc-chitosan__name">Zatrzymanie wilgoci</h3>
-
-          <div class="rc-chitosan__copy">
-            <span class="rc-chitosan__icon">
-              <img
-                src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/drops-1.svg"
-                alt=""
-              />
-            </span>
-
-            <p>
-              Film chitozanowy wspiera ograniczenie TEWL, czyli przeznaskórkowej
-              utraty wody.
-            </p>
-          </div>
-        </article>
-
-        <article class="rc-chitosan__row">
-          <div class="rc-chitosan__no">05</div>
-
-          <h3 class="rc-chitosan__name">Naturalny polimer</h3>
-
-          <div class="rc-chitosan__copy">
-            <span class="rc-chitosan__icon">
-              <img
-                src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/leaf-1.svg"
-                alt=""
-              />
-            </span>
-
-            <p>
-              Chitozan to składnik pochodzenia naturalnego, może być pozyskiwany
-              ze skorup organizmów morskich lub z grzybów.
-            </p>
-          </div>
-        </article>
-      </div>
-
-      <div class="rc-chitosan__photo-scroll">
-        <div class="rc-chitosan__photo-note">
-          <div class="rc-chitosan__image">
-            <img
-              src="https://chitomed-files.b-cdn.net/regcare/chitosan-on-skin.webp"
-              alt="Wizualizacja filmu chitozanowego na powierzchni skóry"
-            />
-
-            <div class="rc-chitosan__scroll-words" aria-hidden="true">
-              <div class="rc-chitosan__scroll-word">
-                <span class="rc-chitosan__scroll-kicker">
-                  01 / film chitozanowy
-                </span>
-                <strong>Bariera</strong>
-                <p>
-                  Cienka, elastyczna warstwa wspiera powierzchnię skóry po
-                  aplikacji.
-                </p>
-              </div>
-
-              <div class="rc-chitosan__scroll-word">
-                <span class="rc-chitosan__scroll-kicker">02 / bioadhezja</span>
-                <strong>Ochrona</strong>
-                <p>
-                  Chitozan lepiej utrzymuje się na skórze, tworząc efekt lekkiej
-                  tarczy.
-                </p>
-              </div>
-
-              <div class="rc-chitosan__scroll-word">
-                <span class="rc-chitosan__scroll-kicker">03 / komfort skóry</span>
-                <strong>Ukojenie</strong>
-                <p>
-                  Pomaga ograniczyć uczucie przesuszenia, napięcia i dyskomfortu.
-                </p>
-              </div>
-
-              <div class="rc-chitosan__scroll-word">
-                <span class="rc-chitosan__scroll-kicker">
-                  04 / utrzymanie wilgoci
-                </span>
-                <strong>Nawilżenie</strong>
-                <p>
-                  Film chitozanowy wspiera ograniczenie przeznaskórkowej utraty
-                  wody.
-                </p>
-              </div>
-
-              <div class="rc-chitosan__scroll-word">
-                <span class="rc-chitosan__scroll-kicker">05 / biomateriał</span>
-                <strong>RegCare</strong>
-                <p>
-                  Technologia biomateriałowa opracowana z myślą o codziennej
-                  pielęgnacji.
-                </p>
-              </div>
-            </div>
-
-            <div class="rc-chitosan__scroll-progress" aria-hidden="true">
-              <span class="rc-chitosan__scroll-dot"></span>
-              <span class="rc-chitosan__scroll-dot"></span>
-              <span class="rc-chitosan__scroll-dot"></span>
-              <span class="rc-chitosan__scroll-dot"></span>
-              <span class="rc-chitosan__scroll-dot"></span>
-            </div>
-          </div>
-
-          <div class="rc-chitosan__body">
-            <p class="rc-chitosan__label">bioadhezyjna warstwa</p>
-
-            <h3>Nie tylko nawilżenie. Bariera.</h3>
-
-            <p>
-              Chitozan mikrokrystaliczny działa jak lekka, niewidoczna siateczka
-              ochronna. Pomaga skórze dłużej utrzymać komfort, ogranicza uczucie
-              przesuszenia i wspiera działanie całej formuły.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="rc-chitosan__body-mobile">
-        <p class="rc-chitosan__label">bioadhezyjna warstwa</p>
-
-        <h3>Nie tylko nawilżenie. Bariera.</h3>
-
-        <p>
-          Chitozan mikrokrystaliczny działa jak lekka, niewidoczna siateczka
-          ochronna. Pomaga skórze dłużej utrzymać komfort, ogranicza uczucie
-          przesuszenia i wspiera działanie całej formuły.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="rc-peptide">
-    <div class="rc-peptide__wrap">
-      <div class="rc-peptide__grid">
-        <div class="rc-peptide__copy">
-          <p class="rc-peptide__chapter">02 / Peptydy</p>
-
-          <h2 class="rc-peptide__title">
-            Efekt botoxu bez igieł.
-          </h2>
-
-          <p class="rc-peptide__lead">
-            Połączenie <strong>chitozanu mikrokrystalicznego</strong> z peptydami
-            <strong>Argireline®</strong> i <strong>SYN®-AKE</strong> wspiera
-            pielęgnację skóry dojrzałej, bardzo dojrzałej oraz skóry z widocznymi
-            zmarszczkami mimicznymi.
-          </p>
-
-          <div class="rc-peptide__tags">
-            <span class="rc-peptide__tag rc-peptide__tag--black">Argireline®</span>
-            <span class="rc-peptide__tag rc-peptide__tag--black">SYN®-AKE</span>
-            <span class="rc-peptide__tag">skóra dojrzała</span>
-            <span class="rc-peptide__tag">profilaktyka zmarszczek</span>
-          </div>
-
-          <div class="rc-peptide__note">
-            <b>Dla kogo?</b>
-            Dla skóry dojrzałej i bardzo dojrzałej oraz jako profilaktyka przeciw
-            powstawaniu i utrwalaniu się zmarszczek mimicznych u osób młodszych.
-          </div>
-        </div>
-
-        <div>
-          <div class="rc-peptide__ba" data-rc-peptide-ba>
-            <img
-              class="rc-peptide__before"
-              src="https://chitomed-files.b-cdn.net/regcare/botox-like-before.webp"
-              alt="Skóra przed zastosowaniem kremu"
-            />
-
-            <img
-              class="rc-peptide__after"
-              src="https://chitomed-files.b-cdn.net/regcare/botox-like-after.webp"
-              alt="Skóra po zastosowaniu kremu"
-            />
-
-            <span class="rc-peptide__ba-label rc-peptide__ba-label--before">Przed</span>
-            <span class="rc-peptide__ba-label rc-peptide__ba-label--after">Po</span>
-
-            <div class="rc-peptide__line"></div>
-            <div class="rc-peptide__handle"></div>
-
-            <input
-              class="rc-peptide__range"
-              type="range"
-              min="0"
-              max="100"
-              value="50"
-              aria-label="Porównaj efekt przed i po"
-            />
-
-            <div class="rc-peptide__caption">
-              <small>porównanie wizualne</small>
-              <strong>Przeciągnij i zobacz różnicę.</strong>
-            </div>
-          </div>
-
-          <div class="rc-peptide__products">
-            <a
-              class="rc-peptide__product"
-              href="https://regcare.eu/pl/p/Krem-odmladzajacy-CHITOSAN-Syn-Ake-i-Argirelina-30ml.-/38"
-            >
-              <span class="rc-peptide__product-img">
-                <img
-                  src="https://regcare.eu/environment/cache/images/productGfx_721_300_300/krempeptydowy2peptydyzchitoanemsilnieodmladzajacy.png"
-                  alt="Krem CHITOSAN Syn-Ake i Argirelina"
-                />
-              </span>
-
-              <span class="rc-peptide__product-content">
-                <small>produkt 01</small>
-                <strong>Chitosan Syn®-Ake + Argirelina</strong>
-              </span>
-
-              <span class="rc-peptide__arrow">→</span>
-            </a>
-
-            <a
-              class="rc-peptide__product"
-              href="https://regcare.eu/pl/p/Krem-CHITOSAN-Syn-Ake-50ml.-/35"
-            >
-              <span class="rc-peptide__product-img">
-                <img
-                  src="https://regcare.eu/environment/cache/images/productGfx_725_300_300/przeciwzmarszczkowySyn_Acekremzchitozanemregcare.png"
-                  alt="Krem CHITOSAN Syn-Ake"
-                />
-              </span>
-
-              <span class="rc-peptide__product-content">
-                <small>produkt 02</small>
-                <strong>Chitosan Syn®-Ake</strong>
-              </span>
-
-              <span class="rc-peptide__arrow">→</span>
-            </a>
-
-            <a
-              class="rc-peptide__product"
-              href="https://regcare.eu/pl/p/Krem-CHITOSAN-Argirelina-50ml.-/28"
-            >
-              <span class="rc-peptide__product-img">
-                <img
-                  src="https://regcare.eu/environment/cache/images/productGfx_726_300_300/argirelinenewwww.png"
-                  alt="Krem CHITOSAN Argirelina"
-                />
-              </span>
-
-              <span class="rc-peptide__product-content">
-                <small>produkt 03</small>
-                <strong>Chitosan Argirelina®</strong>
-              </span>
-
-              <span class="rc-peptide__arrow">→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="reg-compare-landing"
-    id="efekty-pielegnacji-regcare"
-    aria-labelledby="efekty-pielegnacji-regcare-title">
-    <div class="reg-compare-landing__wrap">
-      <header class="reg-compare-landing__top">
-        <div>
-          <p class="reg-compare-landing__kicker">Codzienne doświadczenie</p>
-
-          <h2
-            class="reg-compare-landing__title"
-            id="efekty-pielegnacji-regcare-title">
-            Co zyskujesz przy regularnym stosowaniu
-          </h2>
-        </div>
-
-        <p class="reg-compare-landing__lead">
-          Za technologią stoi konkretne, codzienne doświadczenie. Oto, czego
-          możesz się spodziewać, stosując kosmetyki RegCare regularnie.
-        </p>
-      </header>
-
-      <div
-        class="reg-compare-landing__features"
-        aria-label="Najważniejsze odczuwalne efekty pielęgnacji RegCare">
-        <article class="reg-feature-card">
-          <div class="reg-feature-card__image">
-            <img
-              src="https://chitomed-files.b-cdn.net/regcare/chitosan-on-skin.webp"
-              alt="Lekka bioadhezyjna warstwa na powierzchni skóry" />
-          </div>
-
-          <span class="reg-feature-card__number">01</span>
-
-          <div class="reg-feature-card__content">
-            <h3>Długotrwały komfort</h3>
-
-            <p>
-              Formuła pomaga utrzymać składniki pielęgnacyjne bliżej powierzchni
-              skóry, dzięki czemu uczucie nawilżenia i ukojenia może utrzymywać
-              się dłużej po aplikacji.
-            </p>
-
-            <span class="reg-feature-card__tag"> efekt filmu ochronnego </span>
-          </div>
-        </article>
-
-        <article class="reg-feature-card">
-          <div class="reg-feature-card__image">
-            <img
-              src="https://chitomed-files.b-cdn.net/regcare/chitosan-blue.webp"
-              alt="Skóra z dłuższym uczuciem nawilżenia po aplikacji kremu" />
-          </div>
-
-          <span class="reg-feature-card__number">02</span>
-
-          <div class="reg-feature-card__content">
-            <h3>Dłuższe uczucie nawilżenia</h3>
-
-            <p>
-              Pomaga ograniczać utratę wilgoci, dzięki czemu skóra może dłużej
-              zachować uczucie miękkości, elastyczności i komfortu.
-            </p>
-
-            <span class="reg-feature-card__tag">
-              mniej uczucia przesuszenia
-            </span>
-          </div>
-        </article>
-
-        <article class="reg-feature-card">
-          <div class="reg-feature-card__image">
-            <img
-              src="https://chitomed-files.b-cdn.net/regcare/regcare-cream-on-skin.webp"
-              alt="Wsparcie bariery ochronnej skóry przez dermokosmetyki RegCare" />
-          </div>
-
-          <span class="reg-feature-card__number">03</span>
-
-          <div class="reg-feature-card__content">
-            <h3>Wsparcie bariery skóry</h3>
-
-            <p>
-              Lekka warstwa ochronna wspiera naturalną barierę skóry i pomaga
-              zmniejszać dyskomfort związany z suchością lub podrażnieniem.
-            </p>
-
-            <span class="reg-feature-card__tag"> większy komfort skóry </span>
-          </div>
-        </article>
-
-        <article class="reg-feature-card">
-          <div class="reg-feature-card__image">
-            <img
-              src="https://chitomed-files.b-cdn.net/regcare/regcare-model-11.webp"
-              alt="Gładsza i bardziej miękka skóra po zastosowaniu kosmetyków RegCare" />
-          </div>
-
-          <span class="reg-feature-card__number">04</span>
-
-          <div class="reg-feature-card__content">
-            <h3>Miękkość i wygładzenie</h3>
-
-            <p>
-              Po aplikacji skóra staje się przyjemniejsza w dotyku, bardziej
-              gładka i optycznie świeższa — bez ciężkiego, tłustego filmu.
-            </p>
-
-            <span class="reg-feature-card__tag"> lekka formuła </span>
-          </div>
-        </article>
-      </div>
-
-      <aside
-        class="reg-compare-landing__cta"
-        aria-label="Przejście do kategorii kremów do twarzy RegCare">
-        <div>
-          <strong>Technologia, którą czuć na skórze.</strong>
+<section class="rc-chitosan">
+  <div class="rc-chitosan__wrap">
+    <div class="rc-chitosan__meta">
+      <p class="rc-chitosan__chapter">01 / Technologia</p>
+
+      <div>
+        <h2 class="rc-chitosan__title">
+          Składnik, który nie znika.
           <br />
-          <span>
-            Wybierz dermokosmetyki RegCare z chitozanem mikrokrystalicznym i
-            poczuj różnicę w komforcie, gładkości oraz nawilżeniu skóry.
+          Pracuje na skórze
+        </h2>
+
+        <p class="rc-chitosan__lead">
+          Chitozan mikrokrystaliczny w RegCare nie jest zwykłym dodatkiem do
+          formuły. To bioadhezyjny składnik, który po aplikacji tworzy na skórze
+          cienką, elastyczną warstwę wspierającą komfort i barierę.
+        </p>
+      </div>
+    </div>
+
+    <div class="rc-chitosan__field">
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">01</div>
+
+        <h3 class="rc-chitosan__name">Własna technologia</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/star-12.svg"
+              alt=""
+            />
+          </span>
+
+          <p>
+            Opracowaliśmy formę chitozanu mikrokrystalicznego, dzięki której
+            składnik lepiej łączy się z formułą kosmetyczną i tworzy na skórze
+            lekką, bioadhezyjną warstwę ochronną.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">02</div>
+
+        <h3 class="rc-chitosan__name">Działa jak magnes</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/magnet-1.svg"
+              alt=""
+            />
+          </span>
+
+          <p>
+            Skóra i włosy mają ładunek ujemny, dlatego chitozan
+            mikrokrystaliczny przyciąga się do ich powierzchni i lepiej
+            utrzymuje się po aplikacji.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">03</div>
+
+        <h3 class="rc-chitosan__name">Niewidzialna tarcza</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/shield-1.svg"
+              alt=""
+            />
+          </span>
+
+          <p>
+            Po aplikacji zostawia cienką, elastyczną warstwę, która wspiera
+            barierę skóry i pomaga ograniczyć uczucie przesuszenia.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">04</div>
+
+        <h3 class="rc-chitosan__name">Zatrzymanie wilgoci</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/drops-1.svg"
+              alt=""
+            />
+          </span>
+
+          <p>
+            Film chitozanowy wspiera ograniczenie TEWL, czyli przeznaskórkowej
+            utraty wody.
+          </p>
+        </div>
+      </article>
+
+      <article class="rc-chitosan__row">
+        <div class="rc-chitosan__no">05</div>
+
+        <h3 class="rc-chitosan__name">Naturalny polimer</h3>
+
+        <div class="rc-chitosan__copy">
+          <span class="rc-chitosan__icon">
+            <img
+              src="https://sklep316145.shoparena.pl/userdata/public/skins/cfb06237ca3b8b1656c40d5a88582938_copy_2/assets/leaf-1.svg"
+              alt=""
+            />
+          </span>
+
+          <p>
+            Chitozan to składnik pochodzenia naturalnego, może być pozyskiwany
+            ze skorup organizmów morskich lub z grzybów.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="rc-chitosan__photo-scroll">
+      <div class="rc-chitosan__photo-note">
+        <div class="rc-chitosan__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/chitosan-on-skin.webp"
+            alt="Wizualizacja filmu chitozanowego na powierzchni skóry"
+          />
+
+          <div class="rc-chitosan__scroll-words" aria-hidden="true">
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">
+                01 / film chitozanowy
+              </span>
+              <strong>Bariera</strong>
+              <p>
+                Cienka, elastyczna warstwa wspiera powierzchnię skóry po
+                aplikacji.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">02 / bioadhezja</span>
+              <strong>Ochrona</strong>
+              <p>
+                Chitozan lepiej utrzymuje się na skórze, tworząc efekt lekkiej
+                tarczy.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">03 / komfort skóry</span>
+              <strong>Ukojenie</strong>
+              <p>
+                Pomaga ograniczyć uczucie przesuszenia, napięcia i dyskomfortu.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">
+                04 / utrzymanie wilgoci
+              </span>
+              <strong>Nawilżenie</strong>
+              <p>
+                Film chitozanowy wspiera ograniczenie przeznaskórkowej utraty
+                wody.
+              </p>
+            </div>
+
+            <div class="rc-chitosan__scroll-word">
+              <span class="rc-chitosan__scroll-kicker">05 / biomateriał</span>
+              <strong>RegCare</strong>
+              <p>
+                Technologia biomateriałowa opracowana z myślą o codziennej
+                pielęgnacji.
+              </p>
+            </div>
+          </div>
+
+          <div class="rc-chitosan__scroll-progress" aria-hidden="true">
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+            <span class="rc-chitosan__scroll-dot"></span>
+          </div>
+        </div>
+
+        <div class="rc-chitosan__body">
+          <p class="rc-chitosan__label">bioadhezyjna warstwa</p>
+
+          <h3>Nie tylko nawilżenie. Bariera.</h3>
+
+          <p>
+            Chitozan mikrokrystaliczny działa jak lekka, niewidoczna siateczka
+            ochronna. Pomaga skórze dłużej utrzymać komfort, ogranicza uczucie
+            przesuszenia i wspiera działanie całej formuły.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rc-chitosan__body-mobile">
+      <p class="rc-chitosan__label">bioadhezyjna warstwa</p>
+
+      <h3>Nie tylko nawilżenie. Bariera.</h3>
+
+      <p>
+        Chitozan mikrokrystaliczny działa jak lekka, niewidoczna siateczka
+        ochronna. Pomaga skórze dłużej utrzymać komfort, ogranicza uczucie
+        przesuszenia i wspiera działanie całej formuły.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="rc-peptide">
+  <div class="rc-peptide__wrap">
+    <div class="rc-peptide__grid">
+      <div class="rc-peptide__copy">
+        <p class="rc-peptide__chapter">02 / Peptydy</p>
+
+        <h2 class="rc-peptide__title">
+          Efekt botoxu bez igieł.
+        </h2>
+
+        <p class="rc-peptide__lead">
+          Połączenie <strong>chitozanu mikrokrystalicznego</strong> z peptydami
+          <strong>Argireline®</strong> i <strong>SYN®-AKE</strong> wspiera
+          pielęgnację skóry dojrzałej, bardzo dojrzałej oraz skóry z widocznymi
+          zmarszczkami mimicznymi.
+        </p>
+
+        <div class="rc-peptide__tags">
+          <span class="rc-peptide__tag rc-peptide__tag--black">Argireline®</span>
+          <span class="rc-peptide__tag rc-peptide__tag--black">SYN®-AKE</span>
+          <span class="rc-peptide__tag">skóra dojrzała</span>
+          <span class="rc-peptide__tag">profilaktyka zmarszczek</span>
+        </div>
+
+        <div class="rc-peptide__note">
+          <b>Dla kogo?</b>
+          Dla skóry dojrzałej i bardzo dojrzałej oraz jako profilaktyka przeciw
+          powstawaniu i utrwalaniu się zmarszczek mimicznych u osób młodszych.
+        </div>
+      </div>
+
+      <div>
+        <div class="rc-peptide__ba" data-rc-peptide-ba>
+          <img
+            class="rc-peptide__before"
+            src="https://chitomed-files.b-cdn.net/regcare/botox-like-before.webp"
+            alt="Skóra przed zastosowaniem kremu"
+          />
+
+          <img
+            class="rc-peptide__after"
+            src="https://chitomed-files.b-cdn.net/regcare/botox-like-after.webp"
+            alt="Skóra po zastosowaniu kremu"
+          />
+
+          <span class="rc-peptide__ba-label rc-peptide__ba-label--before">Przed</span>
+          <span class="rc-peptide__ba-label rc-peptide__ba-label--after">Po</span>
+
+          <div class="rc-peptide__line"></div>
+          <div class="rc-peptide__handle"></div>
+
+          <input
+            class="rc-peptide__range"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Porównaj efekt przed i po"
+          />
+
+          <div class="rc-peptide__caption">
+            <small>porównanie wizualne</small>
+            <strong>Przeciągnij i zobacz różnicę.</strong>
+          </div>
+        </div>
+
+        <div class="rc-peptide__products">
+          <a
+            class="rc-peptide__product"
+            href="https://regcare.eu/pl/p/Krem-odmladzajacy-CHITOSAN-Syn-Ake-i-Argirelina-30ml.-/38"
+          >
+            <span class="rc-peptide__product-img">
+              <img
+                src="https://regcare.eu/environment/cache/images/productGfx_721_300_300/krempeptydowy2peptydyzchitoanemsilnieodmladzajacy.png"
+                alt="Krem CHITOSAN Syn-Ake i Argirelina"
+              />
+            </span>
+
+            <span class="rc-peptide__product-content">
+              <small>produkt 01</small>
+              <strong>Chitosan Syn®-Ake + Argirelina</strong>
+            </span>
+
+            <span class="rc-peptide__arrow">→</span>
+          </a>
+
+          <a
+            class="rc-peptide__product"
+            href="https://regcare.eu/pl/p/Krem-CHITOSAN-Syn-Ake-50ml.-/35"
+          >
+            <span class="rc-peptide__product-img">
+              <img
+                src="https://regcare.eu/environment/cache/images/productGfx_725_300_300/przeciwzmarszczkowySyn_Acekremzchitozanemregcare.png"
+                alt="Krem CHITOSAN Syn-Ake"
+              />
+            </span>
+
+            <span class="rc-peptide__product-content">
+              <small>produkt 02</small>
+              <strong>Chitosan Syn®-Ake</strong>
+            </span>
+
+            <span class="rc-peptide__arrow">→</span>
+          </a>
+
+          <a
+            class="rc-peptide__product"
+            href="https://regcare.eu/pl/p/Krem-CHITOSAN-Argirelina-50ml.-/28"
+          >
+            <span class="rc-peptide__product-img">
+              <img
+                src="https://regcare.eu/environment/cache/images/productGfx_726_300_300/argirelinenewwww.png"
+                alt="Krem CHITOSAN Argirelina"
+              />
+            </span>
+
+            <span class="rc-peptide__product-content">
+              <small>produkt 03</small>
+              <strong>Chitosan Argirelina®</strong>
+            </span>
+
+            <span class="rc-peptide__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section
+  class="reg-compare-landing"
+  id="efekty-pielegnacji-regcare"
+  aria-labelledby="efekty-pielegnacji-regcare-title">
+  <div class="reg-compare-landing__wrap">
+    <header class="reg-compare-landing__top">
+      <div>
+        <p class="reg-compare-landing__kicker">Codzienne doświadczenie</p>
+
+        <h2
+          class="reg-compare-landing__title"
+          id="efekty-pielegnacji-regcare-title">
+          Co zyskujesz przy regularnym stosowaniu
+        </h2>
+      </div>
+
+      <p class="reg-compare-landing__lead">
+        Za technologią stoi konkretne, codzienne doświadczenie. Oto, czego
+        możesz się spodziewać, stosując kosmetyki RegCare regularnie.
+      </p>
+    </header>
+
+    <div
+      class="reg-compare-landing__features"
+      aria-label="Najważniejsze odczuwalne efekty pielęgnacji RegCare">
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/chitosan-on-skin.webp"
+            alt="Lekka bioadhezyjna warstwa na powierzchni skóry" />
+        </div>
+
+        <span class="reg-feature-card__number">01</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            po aplikacji
+          </span> -->
+
+          <h3>Długotrwały komfort</h3>
+
+          <p>
+            Formuła pomaga utrzymać składniki pielęgnacyjne bliżej powierzchni
+            skóry, dzięki czemu uczucie nawilżenia i ukojenia może utrzymywać
+            się dłużej po aplikacji.
+          </p>
+
+          <span class="reg-feature-card__tag"> efekt filmu ochronnego </span>
+        </div>
+      </article>
+
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/chitosan-blue.webp"
+            alt="Skóra z dłuższym uczuciem nawilżenia po aplikacji kremu" />
+        </div>
+
+        <span class="reg-feature-card__number">02</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            nawilżenie
+          </span> -->
+
+          <h3>Dłuższe uczucie nawilżenia</h3>
+
+          <p>
+            Pomaga ograniczać utratę wilgoci, dzięki czemu skóra może dłużej
+            zachować uczucie miękkości, elastyczności i komfortu.
+          </p>
+
+          <span class="reg-feature-card__tag">
+            mniej uczucia przesuszenia
           </span>
         </div>
+      </article>
 
-        <a
-          class="reg-compare-landing__button"
-          href="/pl/c/Kremy-do-twarzy/17"
-          aria-label="Zobacz kremy do twarzy RegCare z chitozanem mikrokrystalicznym">
-          Zobacz nasze produkty
-        </a>
-      </aside>
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/regcare-cream-on-skin.webp"
+            alt="Wsparcie bariery ochronnej skóry przez dermokosmetyki RegCare" />
+        </div>
+
+        <span class="reg-feature-card__number">03</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            bariera skóry
+          </span> -->
+
+          <h3>Wsparcie bariery skóry</h3>
+
+          <p>
+            Lekka warstwa ochronna wspiera naturalną barierę skóry i pomaga
+            zmniejszać dyskomfort związany z suchością lub podrażnieniem.
+          </p>
+
+          <span class="reg-feature-card__tag"> większy komfort skóry </span>
+        </div>
+      </article>
+
+      <article class="reg-feature-card">
+        <div class="reg-feature-card__image">
+          <img
+            src="https://chitomed-files.b-cdn.net/regcare/regcare-model-11.webp"
+            alt="Gładsza i bardziej miękka skóra po zastosowaniu kosmetyków RegCare" />
+        </div>
+
+        <span class="reg-feature-card__number">04</span>
+
+        <div class="reg-feature-card__content">
+          <!-- <span class="reg-feature-card__eyebrow">
+            efekt na skórze
+          </span> -->
+
+          <h3>Miękkość i wygładzenie</h3>
+
+          <p>
+            Po aplikacji skóra staje się przyjemniejsza w dotyku, bardziej
+            gładka i optycznie świeższa — bez ciężkiego, tłustego filmu.
+          </p>
+
+          <span class="reg-feature-card__tag"> lekka formuła </span>
+        </div>
+      </article>
     </div>
-  </section>
 
-  <section class="reg-faq">
-    <div class="reg-faq__wrap">
-      <div class="reg-faq__head">
-        <div>
-          <h2 class="reg-faq__title">
-            Najczęstsze
-            <span>pytania</span>
-          </h2>
+    <aside
+      class="reg-compare-landing__cta"
+      aria-label="Przejście do kategorii kremów do twarzy RegCare">
+      <div>
+        <strong>Technologia, którą czuć na skórze.</strong>
+        <br />
+        <span>
+          Wybierz dermokosmetyki RegCare z chitozanem mikrokrystalicznym i
+          poczuj różnicę w komforcie, gładkości oraz nawilżeniu skóry.
+        </span>
+      </div>
+
+      <a
+        class="reg-compare-landing__button"
+        href="/pl/c/Kremy-do-twarzy/17"
+        aria-label="Zobacz kremy do twarzy RegCare z chitozanem mikrokrystalicznym">
+        Zobacz nasze produkty
+      </a>
+    </aside>
+  </div>
+</section>
+
+<section class="reg-faq">
+  <div class="reg-faq__wrap">
+    <div class="reg-faq__head">
+      <div>
+        <h2 class="reg-faq__title">
+          Najczęstsze
+          <span>pytania</span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="reg-faq__grid">
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czym jest chitozan mikrokrystaliczny?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              To forma chitozanu opracowana tak, aby lepiej pracowała w
+              kosmetyku. W RegCare jest kluczowym biomateriałem, który pomaga
+              tworzyć na skórze lekką, bioadhezyjną warstwę ochronną.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div class="reg-faq__grid">
-        <div class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <h3>Czym jest chitozan mikrokrystaliczny?</h3>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Co chitozan daje skórze?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
 
-          <div class="faq-answer">
-            <div class="faq-answer__inner">
-              <p>
-                To forma chitozanu opracowana tak, aby lepiej pracowała w
-                kosmetyku. W RegCare jest kluczowym biomateriałem, który pomaga
-                tworzyć na skórze lekką, bioadhezyjną warstwę ochronną.
-              </p>
-            </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Pomaga ograniczać utratę wilgoci, wspiera barierę skóry i poprawia
+              komfort po aplikacji. Najprościej: działa jak delikatna,
+              niewidoczna siateczka, która pomaga skórze dłużej utrzymać
+              nawilżenie.
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <h3>Co chitozan daje skórze?</h3>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czy produkty RegCare są dobre dla skóry wrażliwej?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
 
-          <div class="faq-answer">
-            <div class="faq-answer__inner">
-              <p>
-                Pomaga ograniczać utratę wilgoci, wspiera barierę skóry i poprawia
-                komfort po aplikacji. Najprościej: działa jak delikatna,
-                niewidoczna siateczka, która pomaga skórze dłużej utrzymać
-                nawilżenie.
-              </p>
-            </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Formuły RegCare są tworzone z myślą o skórze wymagającej wsparcia
+              bariery: suchej, wrażliwej, reaktywnej lub osłabionej. Warto
+              jednak zawsze dobrać produkt do aktualnego stanu skóry.
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <h3>Czy produkty RegCare są dobre dla skóry wrażliwej?</h3>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czym RegCare różni się od standardowych kosmetyków?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
 
-          <div class="faq-answer">
-            <div class="faq-answer__inner">
-              <p>
-                Formuły RegCare są tworzone z myślą o skórze wymagającej wsparcia
-                bariery: suchej, wrażliwej, reaktywnej lub osłabionej. Warto
-                jednak zawsze dobrać produkt do aktualnego stanu skóry.
-              </p>
-            </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              RegCare wyróżnia się tym, że kluczowym elementem formuł jest
+              chitozan mikrokrystaliczny. Tworzy na skórze lekką warstwę
+              ochronną, wspiera utrzymanie nawilżenia i pomaga składnikom
+              aktywnym dłużej pracować na powierzchni naskórka.
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <h3>Czym RegCare różni się od standardowych kosmetyków?</h3>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Czy kremy z chitozanem są ciężkie albo tłuste?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
 
-          <div class="faq-answer">
-            <div class="faq-answer__inner">
-              <p>
-                RegCare wyróżnia się tym, że kluczowym elementem formuł jest
-                chitozan mikrokrystaliczny. Tworzy na skórze lekką warstwę
-                ochronną, wspiera utrzymanie nawilżenia i pomaga składnikom
-                aktywnym dłużej pracować na powierzchni naskórka.
-              </p>
-            </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Nie muszą być. Chitozan tworzy lekki film ochronny, ale nie
+              oznacza to ciężkiej, tłustej warstwy. Efekt zależy od konkretnej
+              formuły produktu.
+            </p>
           </div>
         </div>
+      </div>
 
-        <div class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <h3>Czy kremy z chitozanem są ciężkie albo tłuste?</h3>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <h3>Jak często stosować produkty RegCare?</h3>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
 
-          <div class="faq-answer">
-            <div class="faq-answer__inner">
-              <p>
-                Nie muszą być. Chitozan tworzy lekki film ochronny, ale nie
-                oznacza to ciężkiej, tłustej warstwy. Efekt zależy od konkretnej
-                formuły produktu.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" type="button" aria-expanded="false">
-            <h3>Jak często stosować produkty RegCare?</h3>
-            <span class="faq-icon" aria-hidden="true"></span>
-          </button>
-
-          <div class="faq-answer">
-            <div class="faq-answer__inner">
-              <p>
-                Najczęściej produkty pielęgnacyjne stosuje się codziennie — rano
-                i/lub wieczorem, zgodnie z przeznaczeniem konkretnego kosmetyku.
-                Przy skórze bardzo wrażliwej warto wprowadzać nowe produkty
-                stopniowo.
-              </p>
-            </div>
+        <div class="faq-answer">
+          <div class="faq-answer__inner">
+            <p>
+              Najczęściej produkty pielęgnacyjne stosuje się codziennie — rano
+              i/lub wieczorem, zgodnie z przeznaczeniem konkretnego kosmetyku.
+              Przy skórze bardzo wrażliwej warto wprowadzać nowe produkty
+              stopniowo.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 </div>
 
 <script>
-  (function () {
+(function () {
     var PX_PER_STEP = 760;
     var MOVE_X = 600;
 
@@ -2158,7 +2266,7 @@
     });
   })();
 
-  (() => {
+(() => {
     const initRcPeptideBa = (root = document) => {
       const sliders = root.querySelectorAll
         ? root.querySelectorAll("[data-rc-peptide-ba]")
@@ -2203,85 +2311,87 @@
     });
   })();
 
-  (() => {
-    const initRegFaq = (root = document) => {
-      const faqItems = root.querySelectorAll ? root.querySelectorAll(".faq-item") : [];
+(() => {
+  const initRegFaq = (root = document) => {
+    const faqItems = root.querySelectorAll ? root.querySelectorAll(".faq-item") : [];
 
-      faqItems.forEach((item) => {
-        if (item.dataset.faqReady === "true") return;
+    faqItems.forEach((item) => {
+      if (item.dataset.faqReady === "true") return;
 
-        const button = item.querySelector(".faq-question");
-        if (!button) return;
+      const button = item.querySelector(".faq-question");
+      if (!button) return;
 
-        function setAnswerHeight(currentItem) {
-          const answer = currentItem.querySelector(".faq-answer");
-          const inner = currentItem.querySelector(".faq-answer__inner");
+      function setAnswerHeight(currentItem) {
+        const answer = currentItem.querySelector(".faq-answer");
+        const inner = currentItem.querySelector(".faq-answer__inner");
 
-          if (!answer || !inner) return;
+        if (!answer || !inner) return;
 
-          if (currentItem.classList.contains("is-open")) {
-            answer.style.maxHeight = inner.scrollHeight + "px";
-          } else {
-            answer.style.maxHeight = null;
-          }
-        }
-
-        item.classList.remove("is-open");
-        button.setAttribute("aria-expanded", "false");
-        setAnswerHeight(item);
-
-        button.addEventListener("click", () => {
-          const isOpen = item.classList.contains("is-open");
-          const group = item.closest(".reg-faq") || document;
-          const groupItems = group.querySelectorAll(".faq-item");
-
-          groupItems.forEach((otherItem) => {
-            otherItem.classList.remove("is-open");
-            const otherButton = otherItem.querySelector(".faq-question");
-            if (otherButton) otherButton.setAttribute("aria-expanded", "false");
-            setAnswerHeight(otherItem);
-          });
-
-          if (!isOpen) {
-            item.classList.add("is-open");
-            button.setAttribute("aria-expanded", "true");
-            setAnswerHeight(item);
-          }
-        });
-
-        item.dataset.faqReady = "true";
-      });
-    };
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => initRegFaq());
-    } else {
-      initRegFaq();
-    }
-
-    window.addEventListener("resize", () => {
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        const answer = item.querySelector(".faq-answer");
-        const inner = item.querySelector(".faq-answer__inner");
-        if (answer && inner && item.classList.contains("is-open")) {
+        if (currentItem.classList.contains("is-open")) {
           answer.style.maxHeight = inner.scrollHeight + "px";
+        } else {
+          answer.style.maxHeight = null;
+        }
+      }
+
+      item.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      setAnswerHeight(item);
+
+      button.addEventListener("click", () => {
+        const isOpen = item.classList.contains("is-open");
+        const group = item.closest(".reg-faq") || document;
+        const groupItems = group.querySelectorAll(".faq-item");
+
+        groupItems.forEach((otherItem) => {
+          otherItem.classList.remove("is-open");
+          const otherButton = otherItem.querySelector(".faq-question");
+          if (otherButton) otherButton.setAttribute("aria-expanded", "false");
+          setAnswerHeight(otherItem);
+        });
+
+        if (!isOpen) {
+          item.classList.add("is-open");
+          button.setAttribute("aria-expanded", "true");
+          setAnswerHeight(item);
         }
       });
+
+      item.dataset.faqReady = "true";
     });
+  };
 
-    window.addEventListener("pageshow", () => initRegFaq());
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => initRegFaq());
+  } else {
+    initRegFaq();
+  }
 
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === 1) initRegFaq(node);
-        });
+  window.addEventListener("resize", () => {
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const answer = item.querySelector(".faq-answer");
+      const inner = item.querySelector(".faq-answer__inner");
+      if (answer && inner && item.classList.contains("is-open")) {
+        answer.style.maxHeight = inner.scrollHeight + "px";
+      }
+    });
+  });
+
+  window.addEventListener("pageshow", () => initRegFaq());
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) initRegFaq(node);
       });
     });
+  });
 
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-    });
-  })();
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
+})();
 </script>
+</body>
+</html>
